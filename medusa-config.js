@@ -122,7 +122,7 @@ module.exports = defineConfig({
       /**
        * @type {import('./src/modules/meilisearch/types').MeiliSearchPluginOptions}
        */
-      options: {
+      options: process.env.NODE_ENV === "development" ? null : {
         config: {
           host:
             process.env.MEILISEARCH_HOST ??
