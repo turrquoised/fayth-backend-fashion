@@ -4,6 +4,13 @@ loadEnv(process.env.NODE_ENV, process.cwd());
 
 module.exports = defineConfig({
   admin: {
+    vite: () => {
+      return {
+        server: {
+          allowedHosts: [".fayth-app-backend-fashion-eqlyh.ondigitalocean.app"], // replace ".medusa-server-testing.com" with ".yourdomain.com"
+        },
+      };
+    },
     backendUrl:
       process.env.BACKEND_URL ?? 'https://sofa-society-starter.medusajs.app',
     storefrontUrl: process.env.STOREFRONT_URL,
