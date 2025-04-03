@@ -9,6 +9,29 @@ module.exports = defineConfig({
     storefrontUrl: process.env.STOREFRONT_URL,
   },
   projectConfig: {
+    databaseDriverOptions: process.env.NODE_ENV === "development" ?
+     {
+      ssl: { // This will be used for medusa server
+        rejectUnauthorized: false,
+      },
+        connection: { 
+          ssl: { 
+            rejectUnauthorized: false
+          }
+        }        
+      } : { 
+        ssl: { // This will be used for medusa server
+          sslmode: 'verify-ca',
+          rejectUnauthorized: true,
+          ca: process.env.DB_CACERT
+        },        
+        connection: { // This will be used for migrations only
+          ssl: { 
+            rejectUnauthorized: false
+          }
+        }
+      },
+
     database_extra: { ssl: { rejectUnauthorized: false } },
     databaseUrl: process.env.DATABASE_URL,
     redisUrl: process.env.REDIS_URL,
