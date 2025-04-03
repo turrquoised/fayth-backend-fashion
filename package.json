@@ -65,6 +65,5 @@
   "engines": {
     "node": "20.11.1",
     "yarn": "1.22.19"
-  },
-  "packageManager": "yarn@4.7.0"
+  }
 }
