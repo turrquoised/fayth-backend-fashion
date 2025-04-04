@@ -7,13 +7,16 @@ module.exports = defineConfig({
     vite: () => {
       return {
         server: {
-          allowedHosts: [".fayth-app-backend-fashion-eqlyh.ondigitalocean.app"], // replace ".medusa-server-testing.com" with ".yourdomain.com"
+          allowedHosts: [
+            ".fayth-app-backend-fashion-eqlyh.ondigitalocean.app",
+            ".fayth-frontend-app-7pn4r.ondigitalocean.app"
+          ], // replace ".medusa-server-testing.com" with ".yourdomain.com"
         },
       };
     },
     backendUrl:
-      process.env.BACKEND_URL ?? 'https://sofa-society-starter.medusajs.app',
-    storefrontUrl: process.env.STOREFRONT_URL,
+      process.env.BACKEND_URL ?? 'https://fayth-app-backend-fashion-eqlyh.ondigitalocean.app',
+    storefrontUrl: process.env.STOREFRONT_URL ?? 'https://fayth-frontend-app-7pn4r.ondigitalocean.app',
   },
   projectConfig: {
     databaseDriverOptions: process.env.NODE_ENV === "development" ?
